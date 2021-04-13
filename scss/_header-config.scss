@@ -1,0 +1,342 @@
+$primary-color: white;
+span {
+	margin-left: 7px;
+}
+.main-header-container {
+	width: 100%;
+	background-color: hsl(13, 100%, 72%);
+	position: relative;
+	height: 80vh;
+	border-bottom-left-radius: 100px;
+
+	.header-container::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background-image: url("/images/bg-pattern-intro.svg");
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		opacity: 0.2;
+	}
+
+	.header-container {
+		display: flex;
+		padding-top: 35px;
+		align-items: flex-start;
+
+		[data-product]::after {
+			content: "";
+			position: absolute;
+			height: 10px;
+			width: 10px;
+			margin-left: 5px;
+			margin-top: 5px;
+			background-image: url("/images/icon-arrow-light.svg");
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		nav {
+			display: flex;
+			flex-basis: 100%;
+			margin-left: 50px;
+			justify-content: space-between;
+			z-index: 1;
+			align-items: center;
+
+			& > ul {
+				display: flex;
+
+				& > li {
+					padding: 0 15px;
+
+					a {
+						color: $primary-color;
+						font-size: 0.9rem;
+					}
+
+					a:hover {
+						text-decoration: underline;
+					}
+
+					&:hover .sub-drop-down {
+						display: block;
+					}
+				}
+			}
+
+			.sub-drop-down {
+				position: absolute;
+				background: $primary-color;
+				margin-top: 0;
+				border-radius: 5px;
+				z-index: 1;
+
+				display: none;
+
+				a {
+					color: hsl(207, 13%, 34%);
+					display: block;
+					margin-top: 5px;
+					padding: 5px 20px;
+				}
+
+				a:hover {
+					color: hsl(240, 10%, 16%);
+					text-decoration: none;
+				}
+
+				&.display-drop-down {
+					display: block;
+				}
+			}
+
+			.signup-container {
+				.login {
+					background: transparent;
+					color: $primary-color;
+				}
+
+				.login:hover {
+					background: $primary-color;
+					color: hsl(356, 100%, 66%);
+				}
+				.sign-up {
+					color: hsl(356, 100%, 66%);
+					background: white;
+				}
+
+				.sign-up:hover {
+					background: hsl(356, 100%, 66%);
+					color: $primary-color;
+				}
+				button {
+					padding: 15px 40px;
+					margin: auto 10px;
+					border-radius: 50px;
+					border: none;
+					font-weight: 600;
+					cursor: pointer;
+					outline: none;
+				}
+			}
+		}
+	}
+
+	.header-title {
+		text-align: center;
+		margin-top: 50px;
+		color: $primary-color;
+		position: relative;
+
+		h1 {
+			font-size: 3rem;
+			margin: 10px;
+		}
+
+		p {
+			margin: 10px;
+		}
+
+		button {
+			margin: 20px 10px;
+			padding: 12px 20px;
+			border-radius: 50px;
+			border: 1px solid $primary-color;
+			outline: none;
+			font-family: inherit;
+			background: transparent;
+			color: $primary-color;
+			font-weight: 600;
+			cursor: pointer;
+			outline: none;
+		}
+
+		.start-for-free {
+			color: hsl(356, 100%, 66%);
+			background: $primary-color;
+		}
+
+		.start-for-free:hover {
+			background: hsl(356, 100%, 66%);
+			color: $primary-color;
+			border: none;
+		}
+
+		.learn-more:hover {
+			color: hsl(356, 100%, 66%);
+			background: $primary-color;
+		}
+	}
+}
+
+.hamburger-menu {
+	display: none;
+}
+
+@media screen and (max-width: 980px) {
+	.main-header-container {
+		height: 90vh;
+		.header-container {
+			margin-left: 30px;
+			nav {
+				flex-direction: column;
+				height: 450px;
+				width: 300px;
+				top: 100px;
+				right: 15%;
+				position: absolute;
+				background: $primary-color;
+				border-radius: 5px;
+				box-shadow: 0px 14px 6px -4px rgba(145, 145, 145, 0.75);
+				-webkit-box-shadow: 0px 14px 6px -4px rgba(145, 145, 145, 0.75);
+				-moz-box-shadow: 0px 14px 6px -4px rgba(145, 145, 145, 0.75);
+				display: none;
+
+				& > ul {
+					display: flex;
+					align-items: center;
+					flex-direction: column;
+					position: relative;
+					width: 100%;
+					border-bottom: 1px solid hsl(240, 2%, 79%);
+					padding-bottom: 20px;
+					height: 60%;
+
+					& > li {
+						a {
+							color: hsl(208, 49%, 24%);
+							margin-top: 20px;
+							font-size: 1.1rem;
+						}
+
+						a:hover {
+							font-weight: 500;
+							text-decoration: none;
+						}
+					}
+				}
+				[data-product]::after {
+					content: "";
+					position: absolute;
+					height: 10px;
+					width: 10px;
+					margin-left: 8px;
+					margin-top: 8px;
+					background-image: none;
+					background-image: url("/images/icon-arrow-dark.svg");
+					background-repeat: no-repeat;
+					background-position: center;
+				}
+
+				.sub-drop-down {
+					background: hsl(240, 2%, 79%);
+					right: 10%;
+					text-align: center;
+					align-items: center;
+					width: 250px;
+
+					display: none;
+
+					a {
+						color: hsl(207, 13%, 34%);
+						display: block;
+						margin-top: 5px;
+						padding: 5px 20px;
+					}
+
+					a:hover {
+						color: hsl(240, 10%, 16%);
+						text-decoration: none;
+					}
+				}
+
+				.signup-container {
+					margin: 10px auto 30px;
+					.login {
+						background: transparent;
+						color: hsl(208, 49%, 24%);
+					}
+
+					.login:hover {
+						background: $primary-color;
+						color: hsl(356, 100%, 66%);
+					}
+					.sign-up {
+						background: hsl(356, 100%, 66%);
+						color: white;
+					}
+
+					.sign-up:hover {
+						background: hsl(356, 100%, 66%);
+						color: $primary-color;
+					}
+
+					button {
+						display: block;
+						font-size: 1rem;
+					}
+				}
+				&.show-nav {
+					display: block;
+
+					.signup-container {
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+					}
+				}
+			}
+		}
+
+		.header-title {
+			h1 {
+				width: 95%;
+			}
+		}
+	}
+
+	.hamburger-menu {
+		position: fixed;
+		top: 40px;
+		right: 20px;
+		cursor: pointer;
+		display: block;
+
+		img {
+			display: none;
+		}
+
+		.show {
+			display: block;
+		}
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.main-header-container {
+		.header-container {
+			nav {
+				height: 400px;
+				width: 200px;
+				top: 100px;
+				right: 10%;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 690px) and (max-width: 900px) {
+	.main-header-container {
+		height: 90vh;
+		.header-container {
+			nav {
+				right: 30%;
+			}
+		}
+	}
+}
